@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ABSA_Bizzagi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["ABSA_Bizzagi/ABSA_Bizzagi/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
