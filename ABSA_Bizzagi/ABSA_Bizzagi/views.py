@@ -3,7 +3,7 @@ import pyrebase
 
 
 config={
-	"apiKey": "",
+	"apiKey": "AIzaSyAEjIqr3gvGZmST9CrkRVwAxdYOf-6g7Kk",
 	"authDomain": "bizzagi-ea16d.firebaseapp.com",
 	"databaseURL": "https://bizzagi-ea16d-default-rtdb.asia-southeast1.firebasedatabase.app",
 	"projectId": "bizzagi-ea16d",
