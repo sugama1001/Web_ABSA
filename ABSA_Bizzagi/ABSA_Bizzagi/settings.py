@@ -26,9 +26,11 @@ SECRET_KEY = 'django-insecure-(n8wa%=4q3-_16#j-^^g%)pf6@y3xtbrk!*txy(&cx_d50(50g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://absa-bizzagi-gg67ha32dq-as.a.run.app',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'ABSA_Bizzagi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["ABSA_Bizzagi/ABSA_Bizzagi/templates"],
+        'DIRS': [BASE_DIR/"ABSA_Bizzagi/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,7 +118,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT =os.path.join(BASE_DIR, '..', 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

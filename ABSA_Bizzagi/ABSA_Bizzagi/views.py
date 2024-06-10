@@ -17,9 +17,9 @@ authe = firebase.auth()
 database=firebase.database()
 
 def signIn(request):
-	return render(request,"Login.html")
+	return render(request,"auth-login-basic.html")
 def home(request):
-	return render(request,"Home.html")
+	return render(request,"index.html")
 
 def postsignIn(request):
 	email=request.POST.get('email')
@@ -28,20 +28,20 @@ def postsignIn(request):
 		user=authe.sign_in_with_email_and_password(email,pasw)
 	except:
 		message="Invalid Credentials!!Please ChecK your Data"
-		return render(request,"Login.html",{"message":message})
+		return render(request,"auth-login-basic.html",{"message":message})
 	session_id=user['idToken']
 	request.session['uid']=str(session_id)
-	return render(request,"Home.html",{"email":email})
+	return render(request,"index.html",{"email":email})
 
 def logout(request):
 	try:
 		del request.session['uid']
 	except:
 		pass
-	return render(request,"Login.html")
+	return render(request,"auth-login-basic.html")
 
 def signUp(request):
-	return render(request,"Registration.html")
+	return render(request,"auth-register-basic.html")
 
 def postsignUp(request):
 	email = request.POST.get('email')
@@ -54,5 +54,5 @@ def postsignUp(request):
 		idtoken = request.session['uid']
 		print(uid)
 	except:
-		return render(request, "Registration.html")
-	return render(request,"Login.html")
+		return render(request, "auth-register-basic.html")
+	return render(request,"auth-login-basic.html")
